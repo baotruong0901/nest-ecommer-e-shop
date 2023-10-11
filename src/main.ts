@@ -8,6 +8,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       `${process.env.CLIENT}`,
+      'https://eshop-blue.vercel.app/',
       'http://localhost:3000',
       // Thêm các nguồn gốc khác tại đây
     ], // Thay đổi thành nguồn gốc của ứng dụng web của bạn
