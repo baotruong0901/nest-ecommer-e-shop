@@ -12,6 +12,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './guards/auth.guard';
 import { BrandModule } from './brand/brand.module';
 import { CategoryModule } from './category/category.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
@@ -27,7 +28,8 @@ import { CategoryModule } from './category/category.module';
     ProductModule,
     ColorModule,
     BrandModule,
-    CategoryModule
+    CategoryModule,
+    CartModule
   ],
   controllers: [AppController],
   providers: [AppService, UploadService,
