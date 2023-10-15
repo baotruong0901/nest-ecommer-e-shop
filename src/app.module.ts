@@ -13,6 +13,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { BrandModule } from './brand/brand.module';
 import { CategoryModule } from './category/category.module';
 import { CartModule } from './cart/cart.module';
+import { StripeModule } from './stripe/stripe.module';
 
 @Module({
   imports: [
@@ -29,7 +30,8 @@ import { CartModule } from './cart/cart.module';
     ColorModule,
     BrandModule,
     CategoryModule,
-    CartModule
+    CartModule,
+    StripeModule
   ],
   controllers: [AppController],
   providers: [AppService, UploadService,

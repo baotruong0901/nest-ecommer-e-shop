@@ -21,12 +21,14 @@ export class Cart {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Color",
             },
+            price: Number
         }],
     })
     products: {
         product: ProductDocument,
         count: number,
         color: ColorDocument,
+        price: number
     }[]
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "User" })

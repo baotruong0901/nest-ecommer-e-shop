@@ -15,6 +15,8 @@ export class CartService {
     ) { }
 
     async addTocart(data: addToCartParam, userId: string) {
+        console.log(data);
+
         try {
             const { productId, colorId, count } = data
             let cart = await this.cartModel.findOne({ user: userId })
@@ -29,7 +31,8 @@ export class CartService {
                     const newProduct = {
                         product: product._id,
                         color: color._id,
-                        count
+                        count,
+                        price: product.price
                     }
                     cart.products.push(newProduct)
                 }
@@ -41,7 +44,8 @@ export class CartService {
                         {
                             product: product._id,
                             color: color._id,
-                            count
+                            count,
+                            price: product.price
                         }
                     ],
                     user: userId
@@ -98,7 +102,11 @@ export class CartService {
 
     async deleteCart(userId: string) {
         try {
-            return await this.cartModel.findOneAndDelete({ user: userId })
+            let cart = await this.cartModel.findOne({ user: userId })
+
+            cart.products = []
+
+            return cart.save()
         } catch (error: any) {
             throw new HttpException(error, 400)
         }
