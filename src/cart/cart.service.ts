@@ -81,7 +81,9 @@ export class CartService {
                         select: "name avatar phone email"
                     }
                 ])
-            return cart
+            if (cart)
+                return cart
+            return []
         } catch (error: any) {
             throw new HttpException(error, 400)
         }
